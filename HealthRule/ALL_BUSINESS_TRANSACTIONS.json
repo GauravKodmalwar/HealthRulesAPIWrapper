@@ -1,0 +1,70 @@
+{
+   
+    "name": "ALL_BUSINESS_TRANSACTIONS",
+    "enabled": true,
+    "useDataFromLastNMinutes": 30,
+    "waitTimeAfterViolation": 30,
+    "scheduleName": "Always",
+    "affects": {
+        "affectedEntityType": "BUSINESS_TRANSACTION_PERFORMANCE",
+        "affectedBusinessTransactions": {
+            "businessTransactionScope": "ALL_BUSINESS_TRANSACTIONS"
+        }
+    },
+    "evalCriterias": {
+        "criticalCriteria": {
+            "conditionAggregationType": "ALL",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "Condition 1",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Average Response Time (ms)",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 100
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 15
+                }
+            ],
+            "evalMatchingCriteria": {
+                "matchType": "ANY_NODE",
+                "value": null
+            }
+        },
+        "warningCriteria": {
+            "conditionAggregationType": "ALL",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "Condition 1",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Calls per Minute",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 10
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 15
+                }
+            ],
+            "evalMatchingCriteria": {
+                "matchType": "NUMBER_OF_NODES",
+                "value": 1
+            }
+        }
+    }
+}

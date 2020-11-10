@@ -1,0 +1,52 @@
+<html>
+<head>
+    <title>Dynatrace Demo</title>
+</head>
+<body>
+<br/>
+<h1>Creating Alert Profile</h1>
+<br/>
+<form action="/CreateAlertProfile" method="post">
+    <fieldset>
+        <legend>Alert Profile</legend>
+<label>Enter Alert Profile Name :</label> <input type="text" name="ProfileName">
+<label>API Token :</label><input type="text" name="APIToken" value="ifQ4bfP-R-KLsOgLn_NkL">
+<label>Enter Host Name :</label> <input type="text" name="HostName" value="hqq84840">
+    <br/>
+    <br/>
+<label class="container">AVAILABILITY<input type="checkbox" name="Rule" value="AVAILABILITY" checked></label>
+<label class="container">ERROR<input type="checkbox" name="Rule" value="ERROR" checked></label>
+<label class="container">PERFORMANCE<input type="checkbox" checked name="Rule" type="checkbox" value="PERFORMANCE"></label>
+<label class="container">RESOURCE_CONTENTION<input type="checkbox" name="Rule" value="RESOURCE_CONTENTION" checked></label>
+<label class="container">CUSTOM_ALERT<input type="checkbox" name="Rule" value="CUSTOM_ALERT" checked></label>
+<label class="container">MONITORING_UNAVAILABLE<input type="checkbox" name="Rule" value="MONITORING_UNAVAILABLE" checked></label>
+    <br/>
+    <br/>
+<input title="CreateRule" type="submit">
+        </fieldset>
+
+</form>
+  <button> <a href="/GetAlertProfile">View Alert Profile</a></button>
+<br/>
+<h1>Creating Notification Configuration</h1>
+<br/>
+<form action="/CreateNotificationConfig" method="post">
+   <fieldset>
+        <legend>Notification Config</legend>
+       <label>API Token :</label><input type="text" name="APIToken" value="ifQ4bfP-R-KLsOgLn_NkL">
+       <label>Profile Id :</label><input type="text" name="ProfileId" value="c21f969b-5f03-333d-83e0-4f8f136e7682">
+       <label>Enter Host Name :</label> <input type="text" name="HostName" value="hqq84840">
+       </br>
+       </br>
+    <label>Enter Email Id :</label> <input type="text" name="Email">
+    <label>Enter Name :</label> <input type="text" name="Body">
+    <br/>
+    <br/>
+    <input type="submit">
+   </fieldset>
+</form>
+ <button> <a href="/GetNotificaltionConfiguration">View Notifications</a></button>
+
+
+</body>
+</html>

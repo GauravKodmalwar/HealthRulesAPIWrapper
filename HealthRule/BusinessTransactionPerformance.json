@@ -1,0 +1,137 @@
+{
+    "name": "BusinessTransactionPerformance",
+    "enabled": true,
+    "useDataFromLastNMinutes": 30,
+    "waitTimeAfterViolation": 10,
+    "scheduleName": "Always",
+    "affects": {
+        "affectedEntityType": "BUSINESS_TRANSACTION_PERFORMANCE",
+        "affectedBusinessTransactions": {
+            "businessTransactionScope": "ALL_BUSINESS_TRANSACTIONS"
+        }
+    },
+    "evalCriterias": {
+        "criticalCriteria": {
+            "conditionAggregationType": "ANY",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "SlowBusinessTransactions",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Average Response Time (ms)",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 10000
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "FailingTransactions",
+                    "shortName": "B",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Errors per Minute",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 5
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "StalledBusinessTransactions",
+                    "shortName": "C",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Stall Count",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 5
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                }
+            ],
+            "evalMatchingCriteria": {
+                "matchType": "ANY_NODE",
+                "value": null
+            }
+        },
+        "warningCriteria": {
+            "conditionAggregationType": "ANY",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "SlowBusinessTransactions",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Average Response Time (ms)",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 5000
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "FailingTransactions",
+                    "shortName": "B",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Errors per Minute",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 2
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "StalledBusinessTransactions",
+                    "shortName": "C",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Stall Count",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 2
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                }
+            ],
+            "evalMatchingCriteria": {
+                "matchType": "ANY_NODE",
+                "value": null
+            }
+        }
+    }
+}

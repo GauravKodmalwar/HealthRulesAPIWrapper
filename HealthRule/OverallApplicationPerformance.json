@@ -1,0 +1,162 @@
+{
+    "name": "OverallApplicationPerformance",
+    "enabled": true,
+    "useDataFromLastNMinutes": 30,
+    "waitTimeAfterViolation": 5,
+    "scheduleName": "Always",
+    "affects": {
+        "affectedEntityType": "OVERALL_APPLICATION_PERFORMANCE"
+    },
+    "evalCriterias": {
+        "criticalCriteria": {
+            "conditionAggregationType": "ANY",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "EndPointSlowness",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Average Response Time (ms)",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 5000
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "ErrorsPerMinute",
+                    "shortName": "B",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Errors per Minute",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 10
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "AppNonResponsive",
+                    "shortName": "C",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Stall Count",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 20
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "BusinessTransactionSlowness",
+                    "shortName": "D",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Average End to End Latency (ms)",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 10000
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                }
+            ],
+            "evalMatchingCriteria": null
+        },
+        "warningCriteria": {
+            "conditionAggregationType": "ANY",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "EndPointSlowness",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Average Response Time (ms)",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 3000
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                },
+                {
+                    "name": "ErrorsPerMinute",
+                    "shortName": "B",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Errors per Minute",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 2
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "AppNonResponsive",
+                    "shortName": "C",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Stall Count",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 2
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 2
+                },
+                {
+                    "name": "BusinessTransactionSlowness",
+                    "shortName": "D",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Average End to End Latency (ms)",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 5000
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                }
+            ],
+            "evalMatchingCriteria": null
+        }
+    }
+}

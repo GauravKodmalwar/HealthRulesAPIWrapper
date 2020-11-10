@@ -1,0 +1,169 @@
+{
+    "name": "NodeHardware",
+    "enabled": true,
+    "useDataFromLastNMinutes": 30,
+    "waitTimeAfterViolation": 10,
+    "scheduleName": "Always",
+    "affects": {
+        "affectedEntityType": "TIER_NODE_HARDWARE",
+        "affectedEntities": {
+            "tierOrNode": "NODE_AFFECTED_ENTITIES",
+            "typeofNode": "ALL_NODES",
+            "affectedNodes": {
+                "affectedNodeScope": "ALL_NODES"
+            }
+        }
+    },
+    "evalCriterias": {
+        "criticalCriteria": {
+            "conditionAggregationType": "ANY",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "CPU1",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|CPU|System",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 85
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                },
+                {
+                    "name": "CPU2",
+                    "shortName": "B",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|CPU|System",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 85
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                },
+                {
+                    "name": "CPU3",
+                    "shortName": "C",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|CPU|IOWait",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 85
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 10
+                },
+                {
+                    "name": "LowMemory",
+                    "shortName": "D",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|Memory|Used %",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 85
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                }
+            ],
+            "evalMatchingCriteria": null
+        },
+        "warningCriteria": {
+            "conditionAggregationType": "ANY",
+            "conditionExpression": null,
+            "conditions": [
+                {
+                    "name": "CPU1",
+                    "shortName": "A",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|CPU|System",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 70
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                },
+                {
+                    "name": "CPU2",
+                    "shortName": "B",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|CPU|System",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 70
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                },
+                {
+                    "name": "CPU3",
+                    "shortName": "C",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|CPU|IOWait",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 70
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 10
+                },
+                {
+                    "name": "LowMemory",
+                    "shortName": "D",
+                    "evaluateToTrueOnNoData": false,
+                    "evalDetail": {
+                        "evalDetailType": "SINGLE_METRIC",
+                        "metricAggregateFunction": "VALUE",
+                        "metricPath": "Hardware Resources|Memory|Used %",
+                        "metricEvalDetail": {
+                            "metricEvalDetailType": "SPECIFIC_TYPE",
+                            "compareCondition": "GREATER_THAN_SPECIFIC_VALUE",
+                            "compareValue": 70
+                        }
+                    },
+                    "triggerEnabled": true,
+                    "minimumTriggers": 5
+                }
+            ],
+            "evalMatchingCriteria": null
+        }
+    }
+}

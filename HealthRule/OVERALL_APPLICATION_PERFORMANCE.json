@@ -1,0 +1,32 @@
+{
+    "name": "Rest JSON - OverAllApplicationPerformance",
+    "useDataFromLastNMinutes": 60,
+    "waitTimeAfterViolation": 36,
+    "schedule" : "Weekdays: 8am-5pm, Mon-Fri",
+    "enabled": true,
+    "affects": {
+        "affectedEntityType": "OVERALL_APPLICATION_PERFORMANCE"
+    },
+    "evalCriterias": {
+        "criticalCriteria": {
+            "conditionAggregationType": "ALL",
+            "conditions": [{
+                "name": "Condition 1",
+                "shortName": "A",
+                "evaluateToTrueOnNoData": false,
+                "evalDetail": {
+                    "evalDetailType": "SINGLE_METRIC",
+                    "metricAggregateFunction": "VALUE",
+                    "metricPath": "Errors per Minute",
+                    "metricEvalDetail": {
+                        "metricEvalDetailType": "BASELINE_TYPE",
+                        "baselineCondition": "WITHIN_BASELINE",
+                        "baselineName": "All Data - Last 15 Days",
+                        "compareValue": 30.5,
+                        "baselineUnit": "PERCENTAGE"
+                    }
+                }
+            }]
+        }
+    }
+}
